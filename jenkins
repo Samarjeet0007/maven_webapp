@@ -41,8 +41,8 @@ pipeline
                 rtMavenDeployer (
                     id: "MAVEN_DEPLOYER",
                     serverId: "art",
-                    releaseRepo: "libs-release-10-4-2020",
-                    snapshotRepo: "libs-snapshot-10-4-2020"
+                    releaseRepo: "libs-release-local",
+                    snapshotRepo: "libs-snapshot-local"
                 )
             }
         }
