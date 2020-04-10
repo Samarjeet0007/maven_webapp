@@ -15,7 +15,7 @@ pipeline
 		{
 			steps
 			{
-				bat 'mvn sonar:sonar -Dsonar.projectKey=sonar-project -Dsonar.projectName=sonar-second-maven-proj -Dsonar.host.url=http://localhost:9000 -Dsonar.login=b805071ae25a368598777744a0a2d260e24df2b5'
+				bat 'mvn org.sonarsource.scanner.maven:sonar-maven-plugin:3.3.0.603:sonar -Dsonar.projectKey=sonar-project -Dsonar.projectName=sonar-second-maven-proj -Dsonar.host.url=http://localhost:9000 -Dsonar.login=b805071ae25a368598777744a0a2d260e24df2b5'
 			}
 		}
 
