@@ -40,7 +40,7 @@ pipeline
             steps {
                 rtMavenDeployer (
                     id: "MAVEN_DEPLOYER",
-                    serverId: "arti_9-4-2020",
+                    serverId: "art",
                     releaseRepo: "libs-release-10-4-2020",
                     snapshotRepo: "libs-snapshot-10-4-2020"
                 )
@@ -60,7 +60,7 @@ pipeline
         stage ('Publishing:') {
             steps {
                 rtPublishBuildInfo (
-                    serverId: "arti_9-4-2020"
+                    serverId: "art"
                 )
             }
         }
