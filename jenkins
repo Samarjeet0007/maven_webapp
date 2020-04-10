@@ -1,0 +1,78 @@
+pipeline
+{
+	agent any
+	stages
+	{
+		stage('compilation:')
+		{
+			steps
+			{
+				bat 'mvn clean compile'
+			}
+		}
+
+		stage('Sonar:')
+		{
+			steps
+			{
+				bat 'mvn sonar:sonar -Dsonar.projectKey=sonar-project -Dsonar.projectName=sonar-second-maven-proj -Dsonar.host.url=http://localhost:9000 -Dsonar.login=b805071ae25a368598777744a0a2d260e24df2b5'
+			}
+		}
+
+
+		stage('test:')
+		{
+			steps
+			{
+				bat 'mvn test'
+			}
+		}
+	
+		stage('packaging:')
+		{
+			steps
+			{
+				bat 'mvn package'
+			}
+		}
+		
+		stage ('Artifactory_Config:') {
+            steps {
+                rtMavenDeployer (
+                    id: "MAVEN_DEPLOYER",
+                    serverId: "arti_9-4-2020",
+                    releaseRepo: "libs-release-10-4-2020",
+                    snapshotRepo: "libs-snapshot-10-4-2020"
+                )
+            }
+        }
+
+        stage ('Artifactory_Exec:') {
+            steps {
+                rtMavenRun (
+                    tool: "maven_home", 
+                    pom: 'pom.xml',
+                    goals: 'clean package',
+                    deployerId: "MAVEN_DEPLOYER",
+                )
+            }
+        }
+        stage ('Publishing:') {
+            steps {
+                rtPublishBuildInfo (
+                    serverId: "arti_9-4-2020"
+                )
+            }
+        }
+	/*
+		stage('Docker'){
+			steps{				
+				bat 'docker build -t 996622/mavenwebapp10042020 .'
+				bat 'docker push 996622/mavenwebapp10042020'
+				bat 'docker pull 996622/mavenwebapp10042020'
+				bat 'docker run -p 8888:8080 --name webapp10 996622/mavenwebapp10042020'
+			}
+		}
+	*/	
+	}
+}
