@@ -64,15 +64,20 @@ pipeline
                 )
             }
         }
-	/*
 		stage('Docker'){
-			steps{				
-				bat 'docker build -t 996622/mavenwebapp10042020 .'
+			steps{	
+			bat 'wget -Credential "admin" -Method Get `
+			http://localhost:8081/artifactory/libs-snapshot-local/com/newjavaproj/first_java_web_app/0.0.1-SNAPSHOT/first_java_web_app-0.0.1-20200409.201708-1.war `
+			-OutFile mavenArtifact.war'
+			docker.withRegistry('https://registry.hub.docker.com','Dhub') {
+	        		def custom_img = docker.build("996622/mavenwebapp10042020")
+				custom_img.push()
+				/*bat 'docker build -t  .'
 				bat 'docker push 996622/mavenwebapp10042020'
-				bat 'docker pull 996622/mavenwebapp10042020'
-				bat 'docker run -p 8888:8080 --name webapp10 996622/mavenwebapp10042020'
+				bat 'docker pull 996622/mavenwebapp10042020'*/
+				}
+			bat 'docker run -p 8888:8080 996622/mavenwebapp10042020'
 			}
-		}
-	*/	
+		}	
 	}
 }
