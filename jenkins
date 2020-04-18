@@ -71,7 +71,8 @@ stage('Docker:'){
 	}
 stage('Docker Operation:'){
 		parallel{
-		agent any
+		stage('DOCKER:'){
+		agent{
 			docker{
 			reuseNode false	
 			//docker.withRegistry('https://registry.hub.docker.com','Dhub') {
@@ -82,7 +83,7 @@ stage('Docker Operation:'){
 			bat 'docker pull 996622/mavenwebapp10042020'
 			//	}
 			bat 'docker run -p 8888:8080 996622/mavenwebapp10042020'
-			}
+			}}}
 		}
 		}
 	}
