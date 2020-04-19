@@ -71,7 +71,7 @@ stage('Docker:'){
 		powershell("""
 			\$username = "admin"
 			\$password = "Passw0rd"
-			\$combine = "${username}:${passw0rd}"
+			\$combine = "${username}:${password}"
 			\$tobyte = [System.Text.Encoding]::ASCII.GetBytes($combine)
 			\$to64code = [System.Convert]::ToBase64String($tobyte)
 			\$AuthValue = "Basic $to64code"
