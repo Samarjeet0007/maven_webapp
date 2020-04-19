@@ -69,8 +69,8 @@ pipeline
 stage('Docker:'){
 	steps{	
 	script{
-		powershell '$var = Get-ChildItem '*"venArtifact.war''
-		powershell 'if ($var) {del $var}'
+		//powershell '$var = Get-ChildItem '*venArtifact.war''
+		//powershell 'if ($var) {del $var}'
 		powershell 'wget -Credential "admin" -Method Get http://localhost:8081/artifactory/libs-snapshot-local/com/newjavaproj/first_java_web_app/0.0.1-SNAPSHOT/first_java_web_app-0.0.1-20200409.201708-1.war -OutFile mavenArtifact.war'
 	}
 	}
