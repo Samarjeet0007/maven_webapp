@@ -68,7 +68,7 @@ pipeline
 */
 stage('Docker:'){
 	steps{	
-		powershell '_powershell.ps1'
+		powershell '.\_powershell.ps1'
 	}
 	}
 stage('Docker Operation:'){
