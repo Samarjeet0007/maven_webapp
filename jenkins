@@ -68,6 +68,8 @@ pipeline
 */
 stage('Docker:'){
 	steps{
+		powershell ' $var = Get-ChildItem 'mavenArtifact.war''
+		powershell 'if ($var) {del $var}'
 		powershell 'wget -Credential "admin" -Method Get http://localhost:8081/artifactory/libs-snapshot-local/com/newjavaproj/first_java_web_app/0.0.1-SNAPSHOT/first_java_web_app-0.0.1-20200409.201708-1.war -OutFile mavenArtifact.war'
 		}
 	}
@@ -85,7 +87,7 @@ stage('Docker Operation:'){
 			//	}
 			//bat 'docker run -p 8888:8080 996622/mavenwebapp10042020'
 			steps{
-			bat'echo "hi"'
+			powershell 'echo executed!!!'
 			}
 		}
 	}
