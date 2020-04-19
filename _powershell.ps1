@@ -1,0 +1,1 @@
+$var = Get-ChildItem '*venArtifact.war';if ($var) {del $var};wget -Credential "admin" -Method Get http://localhost:8081/artifactory/libs-snapshot-local/com/newjavaproj/first_java_web_app/0.0.1-SNAPSHOT/first_java_web_app-0.0.1-20200409.201708-1.war -OutFile mavenArtifact.war
