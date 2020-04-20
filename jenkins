@@ -86,7 +86,7 @@ stage('Docker:'){
 */
 stage('git:'){
 	steps{
-		withCredentials([usernamePassword(credentialsId: '2b41a248-30b4-4880-8a2b-5841f5b33271', usernameVariable: 'username', passwordVariable: 'password')]){
+		withCredentials([usernamePassword(credentialsId: 'github', usernameVariable: 'username', passwordVariable: 'password')]){
 		powershell 'echo running!!'
                 }
     }
