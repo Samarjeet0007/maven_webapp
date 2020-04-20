@@ -84,6 +84,14 @@ stage('Docker:'){
 	}
 	}
 */
+stage('git:'){
+	steps{
+		withCredentials([usernamePassword(credentialsId: 'git_server', usernameVariable: 'username', passwordVariable: 'password')]){
+                {
+                    powershell 'echo running!!'
+                }
+    }
+}
 stage('Docker Operation:'){
 		agent{
 			dockerfile true
