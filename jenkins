@@ -87,7 +87,7 @@ stage('Docker:'){
 stage('git:'){
 	steps{
 		//withCredentials([usernamePassword(credentialsId: '2b41a248-30b4-4880-8a2b-5841f5b33271', usernameVariable: 'username', passwordVariable: 'password')]){
-                withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: '2b41a248-30b4-4880-8a2b-5841f5b33271',usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD']]) {
+                sshagent('2b41a248-30b4-4880-8a2b-5841f5b33271'){
 		powershell 'echo running!!'
                 }
     }
