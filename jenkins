@@ -85,11 +85,13 @@ stage('Docker:'){
 	}
 */
 stage('git:'){
+	parallel{
 	script{
 	steps{
 		withCredentials([usernamePassword(credentialsId: 'github', usernameVariable: 'username', passwordVariable: 'password')]){
 		powershell 'echo running!!'
                 }
+    }
     }
     }
 }
