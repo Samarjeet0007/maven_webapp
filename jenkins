@@ -83,7 +83,7 @@ stage('Docker:'){
 		//powershell 'wget -Credential "admin" -Method Get http://localhost:8081/artifactory/libs-snapshot-local/com/newjavaproj/first_java_web_app/0.0.1-SNAPSHOT/first_java_web_app-0.0.1-20200409.201708-1.war -OutFile .\mavenArtifact.war'
 	}
 	}
-*/
+*//*
 stage("Commit") {
             steps {
                 sh('''
@@ -93,15 +93,19 @@ stage("Commit") {
                     git add mavenArtifact.war && git commit -am "commit from jenkins"
                 ''')
             }
-        }
+        }*/
 stage('git:'){
 	environment{
 		cred = credentials('github')
 	}
 	steps{
 		sh ("""
-			git config --local credential.helper "!f() { echo username=\\$GIT_AUTH_USR; echo password=\\$GIT_AUTH_PSW; }; f"
-                    	git push origin HEAD:$TARGET_BRANCH
+			//git config --local credential.helper "!f() { echo username=\\$GIT_AUTH_USR; echo password=\\$GIT_AUTH_PSW; }; f"
+                    	//git push origin HEAD:$TARGET_BRANCH
+			git add mavenArtifact.war && git commit -am "commit from jenkins"
+			git remote add origin https://github.com/Samarjeet0007/maven_webapp.git
+			git push -u origin master
+			
 		""")
     	}
 }
