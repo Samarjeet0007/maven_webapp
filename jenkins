@@ -91,7 +91,7 @@ stage('git:'){
 	*/
 	steps{
 		powershell ("""
-			echo "heloo dsfdsffsfsff"
+			git init;
 		""")
     	}
 }
