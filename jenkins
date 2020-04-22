@@ -89,12 +89,10 @@ stage('git:'){
 		cred = credentials('github')
 	}
 	steps{
-	//	withCredentials(string[usernamePassword(credentialsId: 'github', usernameVariable: 'username', passwordVariable: 'password')]){
 		powershell ("""
-			git add mavenArtifact.war
+			git 
 		""")
-        //      }
-    }
+    	}
 }
 stage('Docker Operation:'){
 		agent{
