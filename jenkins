@@ -101,7 +101,7 @@ stage('git:'){
 	}
 	steps{
 		sh ("""
-			echo "${env.GIT-BRANCH}"
+			git init
 		""")
     	}
 }
