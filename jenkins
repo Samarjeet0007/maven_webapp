@@ -90,7 +90,9 @@ stage('git:'){
 	}
 	steps{
 	//	withCredentials(string[usernamePassword(credentialsId: 'github', usernameVariable: 'username', passwordVariable: 'password')]){
-		powershell 'echo running!!'
+		powershell ("""
+			git add mavenArtifact.war
+		""")
         //      }
     }
 }
