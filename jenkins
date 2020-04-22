@@ -96,29 +96,14 @@ stage("Commit") {
         }
 	*/
 stage('git:'){
-/*
 	environment{
 		cred = credentials('github')
 	}
 	steps{
 		sh ("""
-			git init
-			git add **.war
-			git commit -m "commit from jenkins"
-			git remote add origin https://github.com/Samarjeet0007/maven_webapp.git
-			git push -u origin master
-			
+			echo "${env.GIT-BRANCH}"
 		""")
     	}
-	*/
-	steps {
-                dir('maven_webapp') {
-                    git branch: master, url: 'https://github.com/Samarjeet0007/maven_webapp.git', credentialsId: 'github'
-                }
-                sh('''
-			git init
-		''')
-            }
 }
 stage('Docker Operation:'){
 		agent{
