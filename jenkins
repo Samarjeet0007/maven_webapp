@@ -83,7 +83,7 @@ stage('Docker:'){
 		//powershell 'wget -Credential "admin" -Method Get http://localhost:8081/artifactory/libs-snapshot-local/com/newjavaproj/first_java_web_app/0.0.1-SNAPSHOT/first_java_web_app-0.0.1-20200409.201708-1.war -OutFile .\mavenArtifact.war'
 	}
 	}
-*//*
+*/
 stage("Commit") {
             steps {
                 sh('''
@@ -94,7 +94,7 @@ stage("Commit") {
                 ''')
             }
         }
-	*/
+	/*
 stage('git:'){
 	environment{
 		cred = credentials('github')
@@ -104,7 +104,8 @@ stage('git:'){
 			git init
 		""")
     	}
-}
+}  */
+/*
 stage('Docker Operation:'){
 		agent{
 			dockerfile true
@@ -122,5 +123,6 @@ stage('Docker Operation:'){
 			powershell 'echo executed!!!'
 			}
 		}
+		*/
 	}
 }
