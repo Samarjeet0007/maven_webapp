@@ -100,7 +100,9 @@ stage('git:'){
 	}
 	steps{
 		sh ("""
-			git add mavenArtifact.war && git commit -am "commit from jenkins"
+			git init
+			git add **.war
+			git commit -m "commit from jenkins"
 			git remote add origin https://github.com/Samarjeet0007/maven_webapp.git
 			git push -u origin master
 			
