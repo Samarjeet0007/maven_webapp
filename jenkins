@@ -100,7 +100,7 @@ stage('git:'){
 		cred = credentials('github')
 	}
 	steps{
-		powershell ("""
+		bat ("""
 			git init
 		""")
     	}
