@@ -84,24 +84,17 @@ stage('Docker:'){
 	}
 	}
 */
-stage("Commit") {
-            steps {
-                sh('''
-    			echo "dffffsd"
-                ''')
-            }
-        }
-	/*
 stage('git:'){
-	environment{
+	/*environment{
 		cred = credentials('github')
 	}
+	*/
 	steps{
-		bat ("""
+		powershell ("""
 			git init
 		""")
     	}
-}  */
+}
 /*
 stage('Docker Operation:'){
 		agent{
