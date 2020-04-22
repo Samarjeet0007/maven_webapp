@@ -84,6 +84,7 @@ stage('Docker:'){
 	}
 	}
 */
+/*
 stage('git:'){
 	/*environment{
 		cred = credentials('github')
@@ -95,24 +96,16 @@ stage('git:'){
 		""")
     	}
 }
-/*
+*/
 stage('Docker Operation:'){
 		agent{
 			dockerfile true
 		      }
-			//reuseNode false	
-			//docker.withRegistry('https://registry.hub.docker.com','Dhub') {
-	        	//	def custom_img = docker.build("996622/mavenwebapp10042020")
-			//	custom_img.push()
-			//bat 'docker build -t 996622/mavenwebapp10042020 .'
-			//bat 'docker push 996622/mavenwebapp10042020'
-			//bat 'docker pull 996622/mavenwebapp10042020'
-			//	}
-			//bat 'docker run -p 8888:8080 996622/mavenwebapp10042020'
 			steps{
-			powershell 'echo executed!!!'
+			powershell ("""
+				docker images
+			""")
 			}
 		}
-		*/
 	}
 }
