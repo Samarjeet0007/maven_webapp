@@ -84,13 +84,24 @@ stage('Docker:'){
 	}
 	}
 */
+stage("Commit") {
+            steps {
+                sh('''
+                    git checkout -B $TARGET_BRANCH
+                    git config user.name 'Samarjeet0007'
+                    git config user.email 'samarjeetkumar962@gmail.com'
+                    git add mavenArtifact.war && git commit -am "commit from jenkins"
+                ''')
+            }
+        }
 stage('git:'){
 	environment{
 		cred = credentials('github')
 	}
 	steps{
 		sh ("""
-			 git
+			git config --local credential.helper "!f() { echo username=\\$GIT_AUTH_USR; echo password=\\$GIT_AUTH_PSW; }; f"
+                    	git push origin HEAD:$TARGET_BRANCH
 		""")
     	}
 }
