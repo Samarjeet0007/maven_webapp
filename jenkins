@@ -87,9 +87,7 @@ stage('Docker:'){
 stage("Commit") {
             steps {
                 sh('''
-                    git config user.name 'Samarjeet0007'
-                    git config user.email 'samarjeetkumar962@gmail.com'
-                    git add mavenArtifact.war && git commit -am "commit from jenkins"
+    			echo "dffffsd"
                 ''')
             }
         }
