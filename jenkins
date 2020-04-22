@@ -96,9 +96,10 @@ stage('git:'){
 }
 */
 stage('Docker Operation:'){
-		agent{
+		/*agent{
 			dockerfile true
 		      }
+		      */
 			steps{
 			powershell ("""
 				docker images
