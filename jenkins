@@ -90,7 +90,8 @@ stage('git:'){
 	}
 	steps{
 		powershell ("""
-			 &'C:\Program Files\Git\bin\git.exe' 
+			 echo "gdffdggf";
+			 git 
 		""")
     	}
 }
