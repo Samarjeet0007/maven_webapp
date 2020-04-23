@@ -3,6 +3,7 @@ pipeline
 	agent any	
 	stages
 	{
+	/*
 		stage('compilation:')
 		{
 			steps
@@ -79,16 +80,15 @@ stage('Docker:'){
 		""")
 	}
 	}
-/*
+*/
 stage('git:'){	 
 	steps{
 		powershell ("""
 			\$env:Path += "C:\\Program Files\\Git\\bin";
-			git init
 		""")
     	}
 }
-*/
+/*
 stage('Docker Operation:'){
 			steps{
 			powershell ("""
@@ -97,5 +97,6 @@ stage('Docker Operation:'){
 			""")
 			}
 		}
+		*/
 	}
 }
