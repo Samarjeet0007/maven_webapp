@@ -83,10 +83,7 @@ stage('Docker:'){
 */
 stage('git:'){	 
 	steps{
-		bat ("""
-			\$env:Path += "C:\\Program Files\\Git\\bin";
-			git init;
-		""")
+		powershell ('git init')
     	}
 }
 /*
