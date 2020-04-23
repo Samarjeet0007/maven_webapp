@@ -3,7 +3,6 @@ pipeline
 	agent any	
 	stages
 	{
-	/*
 		stage('compilation:')
 		{
 			steps
@@ -80,13 +79,19 @@ stage('Docker:'){
 		""")
 	}
 	}
-*/
+/*
 stage('git:'){	 
 	steps{
-		gitbash ('git init')
+		powershell("""
+			git init;
+			git add **.war;
+			git commit -m "commit from jenkins";
+			git remote add origin https://github.com/Samarjeet0007/maven_webapp.git;
+			git push -u origin master
+		""")
     	}
 }
-/*
+*/
 stage('Docker Operation:'){
 			steps{
 			powershell ("""
@@ -95,6 +100,5 @@ stage('Docker Operation:'){
 			""")
 			}
 		}
-		*/
 	}
 }
