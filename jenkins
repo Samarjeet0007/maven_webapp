@@ -83,7 +83,7 @@ stage('Docker:'){
 */
 stage('git:'){	 
 	steps{
-		git ('git init')
+		gitbash ('git init')
     	}
 }
 /*
