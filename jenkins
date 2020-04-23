@@ -3,7 +3,7 @@ pipeline
 	agent any	
 	stages
 	{
-		stage('compilation:')
+	/*	stage('compilation:')
 		{
 			steps
 			{
@@ -77,28 +77,22 @@ stage('Docker:'){
 			\$finaldata = @{ Authorization = \$AuthValue };
 			wget -Headers \$finaldata -Method Get http://localhost:8081/artifactory/libs-snapshot-local/com/newjavaproj/first_java_web_app/0.0.1-SNAPSHOT/first_java_web_app-0.0.1-20200409.201708-1.war -OutFile mavenArtifact.war
 		""")
-		//powershell '$var = Get-ChildItem '*venArtifact.war''
-		//powershell 'if ($var) {del $var}'
-		//powershell 'wget -Credential "admin" -Method Get http://localhost:8081/artifactory/libs-snapshot-local/com/newjavaproj/first_java_web_app/0.0.1-SNAPSHOT/first_java_web_app-0.0.1-20200409.201708-1.war -OutFile .\mavenArtifact.war'
 	}
 	}
-/*
+*/
 stage('git:'){
-	environment{
+	 environment{
 		cred = credentials('github')
 	}
 	steps{
 		powershell ("""
+			\$env:Path += "C:\Program Files\Git\bin";
 			git init;
 		""")
     	}
 }
-*/
+/*
 stage('Docker Operation:'){
-		/*agent{
-			dockerfile true
-		      }
-		      */
 			steps{
 			powershell ("""
 				docker build -t mavenapp:20-4-2020 .;
@@ -106,5 +100,6 @@ stage('Docker Operation:'){
 			""")
 			}
 		}
+		*/
 	}
 }
