@@ -83,7 +83,7 @@ stage('Docker:'){
 */
 stage('git:'){	 
 	steps{
-		powershell ('git init')
+		git ('git init')
     	}
 }
 /*
