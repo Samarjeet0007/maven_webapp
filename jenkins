@@ -3,7 +3,7 @@ pipeline
 	agent any	
 	stages
 	{
-	/*	stage('compilation:')
+		stage('compilation:')
 		{
 			steps
 			{
@@ -79,7 +79,7 @@ stage('Docker:'){
 		""")
 	}
 	}
-*/
+/*
 stage('git:'){	 
 	steps{
 		powershell ("""
@@ -88,7 +88,7 @@ stage('git:'){
 		""")
     	}
 }
-/*
+*/
 stage('Docker Operation:'){
 			steps{
 			powershell ("""
@@ -97,6 +97,5 @@ stage('Docker Operation:'){
 			""")
 			}
 		}
-		*/
 	}
 }
