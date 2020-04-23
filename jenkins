@@ -80,14 +80,11 @@ stage('Docker:'){
 	}
 	}
 */
-stage('git:'){
-	 environment{
-		cred = credentials('github')
-	}
+stage('git:'){	 
 	steps{
 		powershell ("""
 			\$env:Path += "C:\Program Files\Git\bin";
-			git init;
+			git init
 		""")
     	}
 }
